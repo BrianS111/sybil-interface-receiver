@@ -22,7 +22,7 @@ import { ApplicationModal } from '../state/application/actions'
 import OverviewColumn from '../components/governance/OverviewColumn'
 import { useLocation } from 'react-router-dom'
 import { identityOnlyPath } from '../state/governance/reducer'
-import { Receiver, ReceiverLaunch } from '@daopanel/receiver'
+import { Receiver, FixedLaunch } from '@relaycc/receiver'
 import { useActiveWeb3React } from '../hooks'
 
 const SiteWrapper = styled.div`
@@ -93,14 +93,15 @@ export default function App() {
             <Polling />
             <TopLevelModals />
             <Web3ReactManager>
-              <Receiver signer={signer}>
-                <Switch>
+              <Receiver>
+                {/* <Switch>
                   <Route exact strict path="/delegates/:protocolID" component={Delegates} />
                   <Route exact strict path="/proposals/:protocolID" component={Proposals} />
                   <Route exact strict path="/proposals/:protocolID/:proposalID" component={ProposalDetails} />
                   <Route exact strict path="/delegates/:protocolID/:delegateAddress" component={DelegateInfo} />
                   <Route path="/" component={RedirectWithUpdatedGovernance} />
-                </Switch>
+                </Switch> */}
+                <FixedLaunch peerAddress={'0x7643B3E34039ADE2db0f64C9Be4907B2FcE63B2A'} />
               </Receiver>
             </Web3ReactManager>
           </ContentWrapper>

@@ -16,7 +16,7 @@ import Tabs from '../components/governance/Tabs'
 import RelayMessageIcon from '../assets/images/newRelayMessage.svg'
 
 import { Above1080Only, Below1080Only } from '../theme/components'
-import { ReceiverLaunch } from '@daopanel/receiver'
+import { InlineLaunch } from '@relaycc/receiver'
 
 export default function Delegates({
   match: {
@@ -56,7 +56,8 @@ export default function Delegates({
           <OutlineCard>Please switch to Ethereum mainnet. </OutlineCard>
         )}
       </AutoColumn>
-      <ReceiverLaunch
+      <InlineLaunch
+        as="button"
         inlineLaunch
         launchText=""
         launchButtonStyle={{

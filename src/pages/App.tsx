@@ -62,6 +62,13 @@ const ContentWrapper = styled.div`
   }
 `
 
+const ReceiverWrapper = styled.div`
+  display: none;
+  @media (min-width: 1080px) {
+    display: block;
+  }
+`
+
 function TopLevelModals() {
   const open = useModalOpen(ApplicationModal.DELEGATE)
   const toggle = useToggleModal(ApplicationModal.DELEGATE)
@@ -93,19 +100,21 @@ export default function App() {
             <Polling />
             <TopLevelModals />
             <Web3ReactManager>
-              <Receiver>
-                {/* <Switch>
-                  <Route exact strict path="/delegates/:protocolID" component={Delegates} />
-                  <Route exact strict path="/proposals/:protocolID" component={Proposals} />
-                  <Route exact strict path="/proposals/:protocolID/:proposalID" component={ProposalDetails} />
-                  <Route exact strict path="/delegates/:protocolID/:delegateAddress" component={DelegateInfo} />
-                  <Route path="/" component={RedirectWithUpdatedGovernance} />
-                </Switch> */}
-                <FixedLaunch peerAddress={'0x7643B3E34039ADE2db0f64C9Be4907B2FcE63B2A'} />
-              </Receiver>
+              <Switch>
+                <Route exact strict path="/delegates/:protocolID" component={Delegates} />
+                <Route exact strict path="/proposals/:protocolID" component={Proposals} />
+                <Route exact strict path="/proposals/:protocolID/:proposalID" component={ProposalDetails} />
+                <Route exact strict path="/delegates/:protocolID/:delegateAddress" component={DelegateInfo} />
+                <Route path="/" component={RedirectWithUpdatedGovernance} />
+              </Switch>
             </Web3ReactManager>
           </ContentWrapper>
           <Profile />
+          <ReceiverWrapper>
+            <Receiver>
+              <FixedLaunch peerAddress={'0x45c9a201e2937608905fef17de9a67f25f9f98e0'} />
+            </Receiver>
+          </ReceiverWrapper>
         </SiteWrapper>
       )}
       {identityOnlyFlow && (

@@ -56,21 +56,6 @@ export default function Delegates({
           <OutlineCard>Please switch to Ethereum mainnet. </OutlineCard>
         )}
       </AutoColumn>
-      <InlineLaunch
-        as="button"
-        inlineLaunch
-        launchText=""
-        launchButtonStyle={{
-          backgroundSize: 50,
-          backgroundImage: 'url(' + RelayMessageIcon + ')',
-          position: 'fixed',
-          bottom: 50,
-          right: 20,
-          height: 50,
-          width: 50,
-        }}
-        peerAddress="0x0cb27e883e207905ad2a94f9b6ef0c7a99223c37"
-      />
     </BodyWrapper>
   )
 }
